@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>私のJavaScript</title>
+</head>
+
+<body>
+
+    <p>ボタンを押すと、0～9を出力して、3を除外する。</p>
+    <button onclick="myFunction()">クリック</button>
+    <p id="demo"></p>
+    <script>
+        function myFunction() {
+            // TODO forループで実装
+            let valu = "番号 : "//create a valu__:
+            for (let i = 0; i < 10; i++){
+                //condition clear 3
+                if (i === 3){
+                    continue;
+                    i++;
+                }
+                //id
+                document.getElementById("demo").innerHTML += valu + i;
+                document.getElementById("demo").innerHTML += "<br>";
+
+            }
+
+        }
+    </script>
+
+    <!-- another way -->
+
+    <!-- <script>
+        function myFunction(){
+            for (let i = 0; i <= 9; i++){
+
+                if (i === 3){
+                    continue;
+                };
+                //create text
+                var newText = document.createTextNode("番号 : "+ i);
+                //target element
+                var targetId = document.getElementById("demo");
+                //appned text into the box
+                targetId.appendChild(newText);
+
+                //break tag 
+                document.getElementById("demo").innerHTML += "<br>";
+
+
+
+                console.log(targetId);
+
+            }
+        }
+    </script> -->
+
+</body>
+
+</html>
