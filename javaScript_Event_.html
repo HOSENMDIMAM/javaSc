@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>
+            Event
+        </title>
+    </head>
+    <body>
+        <h1>
+            Event of JavaScripts
+        </h1>
+        <a href="https://www.mdimam.com/">JS Tutorial</a>
+        <input type="button" value="alert" onclick="alert(this.value)">
+        <input type="button" value="typeClick" onclick="alert(event.type)">
+        <input type="button" value="Save_value" onclick="alert(value)">
+        <input type="button" value="save" onclick="showalert()">
+
+        <div id="div_1"> 
+            this.id=attribute value is div_1
+        </div>
+        <button id = "btn_1">try it</button>
+
+        <img id="img_1" src="pic_2.jpg" alt="picture" width="200" height="auto" onload="console.log('picture loaded')">
+
+
+        <script>
+            // There are two main event models: event bubbling and event capturing.
+            //bubling niche theke upore
+            //chapture upor theke niche
+
+            let link = document.querySelector('a');
+
+            link.addEventListener('click', function(event){
+                console.log('clicked');
+                // event.stopPropagation;
+                // event.preventDefault();//ata thakle fun kaj krbe na
+            })
+            //when direct call html tag side
+            function showalert(){
+                alert(this.id);
+                console.log("showalert");
+            };
+            //div_1 call create by button
+
+            let btn_div = document.querySelector('#div_1');
+
+            btn_div.onclick = function(){
+                alert(this.id);
+            }
+
+            //add romoveListener__________________:
+            let btn_1 = document.querySelector('#btn_1');
+
+            let show_btn_1 = function(){
+                alert('clicked');
+            }
+            btn_1.addEventListener('click', show_btn_1);
+
+            btn_1.removeEventListener('click', show_btn_1)
+
+            //won't work be care !!!
+            // btn_1.removeEventListener('click', function());
+
+            // page loads event________________:
+            // DOMContentLoaded, load, beforeunload, and unload
+
+            // important____note___***
+
+            /*1.DOMContentLoaded – the browser fully loaded HTML and completed building the DOM tree.
+             However, it hasn’t loaded external resources like stylesheets and images. In this event, 
+             you can start selecting DOM nodes or initialize the interface.
+            2.load – the browser fully loaded the HTML and also external resources like images and stylesheets.
+            When you leave the page, the following events fire in sequence:
+
+            3.beforeunload – fires before the page and resources are unloaded.
+             You can use this event to show a confirmation dialog to confirm if you really want to leave the page. 
+             By doing this, you can prevent data loss in case you are filling out a form and accidentally click a link to navigate to another page.
+            4.unload – fires when the page has completely unloaded. You can use this event to send the analytic data or to clean up resources.*/btn_1
+
+    
+            // addEventListener('DOMContentLoaded', (event) => {
+            //     console.log('The DOM is fully loaded.');
+            // });
+
+            // addEventListener('load', (event) => {
+            //     console.log('The page is fully loaded.');
+            // });
+
+            // addEventListener('beforeunload', (event) => {
+            //     // show the confirmation dialog
+            //     event.preventDefault();
+            //     // Google Chrome requires returnValue to be set.
+            //     event.returnValue = '';
+            // })  ;
+
+            // addEventListener('unload', (event) => {
+            //     // send analytic data
+            // });
+            // // picture load call
+            // window.addEventListener('load', () =>{
+            //     // picture loadiing time
+            //     let pic_1 = document.querySelector("#img_1");
+            //     pic_1.addEventListener('load',(event) => {
+            //         console.log("pic has benn loaded");
+            //     })
+            //     document.body.appendChild(pic_1);
+            //     pic_1.src = this.src;
+            // })
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>

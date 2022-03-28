@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <title>
+            photo slide by javascript
+        </title>
+    </head>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .mySlides{
+            display:none; 
+         }
+        .slideshow-container {
+            max-width: 500px;
+            position: relative;
+            margin: auto;
+        }
+        .prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color:red;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+ 
+
+        .text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+        .numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  /* position: relative; */
+  top: 5;
+}
+
+        .dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: hsl(0, 88%, 48%);
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+ 
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+    </style>
+    <body>
+        
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="pic_3.jpg" style="width:100%">
+                <div class="text">テキスト 1</div>
+            </div>
+    
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="pic_2.jpg" style="width:100%">
+                <div class="text">テキスト 2</div>
+            </div>
+    
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="pic_1.jpg" style="width:100%">
+                <div class="text">テキスト 3</div>
+            </div>
+            <br>
+    
+        </div>
+        <!-- 丸点 -->
+	<div style="text-align:center">
+		<span class="dot"></span>
+		<span class="dot"></span>
+		<span class="dot"></span>
+	</div>
+    <script>
+        // 画像index
+    let slideIndex = 0;
+    showSlides();
+
+
+    function showSlides() {
+    // 画像クリア"none"
+        let slides = document.getElementsByClassName("mySlides");
+        let dott = document.getElementsByTagName("span");
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            console.log(i);
+        }
+
+    // TODO 丸点クリア(active削除)]
+        for(let i = 0;i < dott.length;i++){
+            dott[i].className=dott[i].className.replace(" active","");
+        }
+
+
+    // 次の画像へ
+    slideIndex++;
+
+    // TODO 画像indexは最後画像の場合、最初に戻る
+        if (slideIndex > slides.length){
+            slideIndex = 1;
+        }
+
+    // TODO 画像表示"block"
+        slides[slideIndex-1].style.display="block";
+        dott[slideIndex-1].className +=" active";
+    
+
+    // TODO 丸点表示(active追加)
+
+    // 切替時間3秒で再実行
+        setTimeout(showSlides, 3000); 
+    }
+    </script>
+    </body>
+</html>

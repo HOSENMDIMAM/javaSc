@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>
+            javaScript
+        </title>
+    </head>
+    <body>
+        <h1>javaScript from Method</h1>
+
+
+        <script>
+            // Object Method___________:
+            let person_m = {
+                fname : 'john',
+                lname : 'doe'
+            }
+            person_m.greet = function(){
+                console.log("hello");
+            }
+            person_m.greet();
+            // another way
+            let person_mm = {
+                fname : 'masud',
+                lname : 'hasan',
+                greet_f : function(){
+                    console.log('hello short cart way');
+                },
+                // greet_f (){
+                //     console.log('second way');
+                // },    
+                // greet_f : () => {         //arrow function
+                //     console.log('hello short curt way');
+
+                // },
+                getFulname : function(){
+                    return this.fname + '  '+this.lname;
+                }
+            }
+            person_mm.greet_f();
+
+            console.log(person_mm.getFulname());
+
+            // constructor functions____________________:
+
+            // create many #similar objects like the person object..
+
+            // use the #new keyword to create an object.
+
+            function person_fa (fname, lname){
+                this.fname = fname;
+                this.lname = lname;
+                this.greet_objfunction = function(){
+                    return this.fname+" "+this.lname;
+                }
+            }
+            let person_2 = new person_fa('robel', 'mahmud');//engine create a person_2 obj
+            let person_3 = new person_fa('john', 'doe');
+
+            console.log(person_2);  //{fname : 'robel', lname : 'mahmud'}
+            console.log(person_3);  //{fname : 'john', lname: 'doe'}
+            //call function person 3
+            console.log(person_3.greet_objfunction()); //john doe
+
+            // protype object next time will see_____:
+
+            console.log('_______for in loop__________:');
+
+            var person_4 = {
+                fname : 'risan',
+                lname : 'mike'
+            };
+            var circle_1 = Object.create(person_4);
+            circle_1.phone = 070 ;
+
+            for(var prop in person_4){
+                console.log(prop+' : '+ person_4[prop]);
+            }
+            // var circle = Object.create(person_4);
+            // circle.phone = '077-87..';
+
+            // enumerable attribute ** next time see
+            console.log(person_4);
+
+            const person_5 ={
+                fname : 'mike',
+                lname : 'mira'
+            }
+            person_5.age = 25;
+            //for... in
+            for (let key in person_5){
+                console.log("using for in loop :"+person_5[key]+">> "+key);
+            }
+            //Object.values(..);
+            const profile = Object.values(person_5);
+            console.log("using = Object.values : "+profile);
+
+            // Object.entries()next time?
+
+            // Object.assign()____:
+
+            let widget ={
+                color : 'red'
+            };
+            let box ={
+                height : 24,
+                weight : 11
+            };
+            let widgetBox = Object.assign({},box, widget);
+            console.log(widgetBox);
+
+
+            // factory function_______________:
+
+            function fac_obj(){
+                this.fname_ = fname_;
+                this.lname = lname;
+                return this.fname;
+            };
+            let person_obj_1 = fac_obj('rahim', 'karim');
+            console.log(person_pbj_1);
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,203 @@
+<html>
+    <head>
+        <title>
+            dom
+        </title>
+    </head>
+    <body>
+        <h1>JavaScript DOM basic to advance</h1>
+        <ul id="me">
+            <li>
+                <!-- home -->
+            </li>
+        </ul>
+        <div id="note">
+            JavaScript textContent Demo!
+            <span style="display:none">Hidden Text!</span>
+            <!-- my comment -->
+        </div>    
+        <div id="fragment">
+             <!-- for fragment -->
+        </div>
+        <button >try it</button>
+        <div id = "languageItem"></div>
+        <ul id="menu_insert">
+            <li>Services</li>   
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+        <img src="https://www.javascripttutorial.net/wp-content/uploads/2020/05/JavaScript-insertAdjacentHTML.png" alt="JavaScript-insertAdjacentHTML" srcset="">
+        <h2>wev technology</h2>
+        <ul id="list">
+
+        </ul>
+        
+
+        <script>
+            //createElement()_____method_
+            let div = document.createElement("div");
+            // div.setAttribute('id','container')
+            div.id = 'container';
+            // div.setAttribute("class","divClass");
+            div.className = 'divClass'
+            let text = document.createTextNode("create text")
+            div.appendChild(text);
+            // document.body.appendChild(div);
+            document.body.append(div);
+            console.log(div);
+
+            // chaile innerHTML er maddome sob kaj kora jai
+            // innerHtml na kora tai uttom karon ata execute krle baki gola out hoy if + dei ok
+            document.body.innerHTML += "<p class = 'pp'> by innerHTML Element<span> method</span></p>";
+            // document.body.innerHTML = "<p>out all </p>";
+            // _____________________________________:
+
+            // creat item memu
+
+            let menu  = document.querySelector('#me');
+            let li = document.createElement('li');
+            li.textContent= 'product';
+            menu.appendChild(li);
+
+            li = document.createElement('li');
+            li.textContent = 'About us';
+            menu.appendChild(li);
+
+            // calling function and create element
+            function createMenuItem(name){
+                let li = document.createElement('li');
+                li.textContent = name;
+                return li;
+            }
+            menu.appendChild(createMenuItem('apple'));
+            menu.appendChild(createMenuItem('mango'));
+
+            // _________________________________:
+
+            // moving Node
+            console.log(menu.firstElementChild.appendChild(menu.lastElementChild));
+
+            // textContent Vs innertex______________:
+            let note = document.querySelector('#note');
+            console.log(note.textContent);
+
+            console.log(note.innerText);//le golo human readable oigolo sudo nei innertext
+
+            note.textContent = 'new text by textContent'; //replace kre html er text or new text
+            note.innerText = 'new innertext';  //also replace
+
+            console.log(menu.innerHTML);
+
+            // document Fragment for composing DOM Node_________:
+            let div_f = document.querySelector('#fragment');
+            let btn = document.getElementsByTagName('button');
+            let fragment = document.createDocumentFragment();
+
+            for (let i = 0; i < 5; i++){
+                let p = document.createElement('p')
+                p.textContent = `paragraph fragment ${i}`;
+                fragment.appendChild(p);
+            }
+            div_f.appendChild(fragment);
+            // DocumentFragment to compose DOM nodes before updating them
+
+            let languages =['js' , 'HTML', 'php', 'pytung'];
+
+            let languageItem = document.querySelector('#languageItem');
+            let d = document.createDocumentFragment();
+
+            languages.forEach((languageItem) => {
+                let li = document.createElement('li');
+                li.textContent = languageItem;
+                d.appendChild(li);//coollect krsi list theke
+            });
+           languageItem.appendChild(d);//collect from fragment
+           console.log(d); //akhon fragment empty cause languageItem collect kre felse
+            
+            console.log('_________insertBefore()_________:');
+
+            // parentNode.insertBefore(newNode, existingNode);
+            let menu_insert = document.getElementById('menu_insert');
+            let insert_li = document.createElement('li');
+            insert_li.textContent = 'insert befor';
+
+           // insert a new node before frst element item
+            menu_insert.firstElementChild.parentNode.insertBefore(insert_li, menu_insert.firstElementChild.nextSibling);
+
+            // console.log('_________insertAfter_______:');Not support yet
+            // // create new element
+            // let insert_after = document.createElement('li');
+            // insert_after.textContent = 'insert after';
+
+            // //insert a new node after element__.
+            // menu_insert.lastElementChild.parentNode.insertAfter(insert_after, menu_insert.lastElementChild.nextSibling);
+
+            console.log('_______insertAdjacentHTML()__________:');
+            let adjustment = document.querySelector('#list');
+
+            list.insertAdjacentHTML('beforebegin', '<h1> web technology </h1>');
+            list.insertAdjacentHTML('afterbegin', '<li> PC </li>');
+            list.insertAdjacentHTML('beforeend', '<li> java</li>');
+            list.insertAdjacentHTML('afterend', '<p> front end devoloper </p>');
+            
+
+            // parentNode.replaceChild(newChild, oldChild);___________:
+           // let menu = document.getElementById('menu');
+            // create a new node
+           // let li = document.createElement('li');
+           //// li.textContent = 'Home';
+            // replace the first list item
+
+           // menu.replaceChild(li, menu.firstElementChild);
+
+        //    parentNode.removeChild(childNode);
+        //let menu = document.getElementById('menu');
+        //menu.removeChild(menu.lastElementChild);
+
+        console.log('________Attribute methods_______________:');
+
+        // element.getAttribute(name) – get the attribute value
+        // element.setAttribute(name, value) – set the value for the attribute
+        // element.hasAttribute(name) – check for the existence of an attribute
+        // element.removeAttribute(name) – remove the attribute
+
+            let btnn = document.querySelector('button');
+                btnn.setAttribute('id', 'idbtn');
+                btnn.setAttribute('disabled', '')//'' er karon hoche click hobe but kaj krbe na
+                
+                btnn.getAttribute('id');
+
+
+                console.log('_________Style___________:');
+
+                // element.style
+                //camelcase use when background-color = backgroundColor
+
+                // element.style.cssText = 'color:red;background-color:yellow';
+
+                // Or you can use the setAttribute() method:
+                // element.setAttribute('style','color:red;background-color:yellow');
+                // element.style.color = 'blue';
+
+                // element.style.cssText += 'color:red;background-color:yellow';
+
+                let content = document.querySelector('#menu_insert');
+                content.style.color  = 'red';
+                
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+        </script>
+    </body>
+</html>

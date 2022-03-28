@@ -1,0 +1,448 @@
+<html>
+    <head>
+        <title>
+            javaScript
+        </title>
+    </head>
+    <body>
+        <h1>javaScript Basic to Advance</h1>
+
+        <script>
+ 
+            // String
+            let name = 'john';
+            let message = `Hi, i'm ${name}.`;
+            // console.log("Strintg_1 : "+message);
+
+            // Windows line break: '\r\n'
+            // Unix line break: '\n'
+            // Tab: '\t'
+            // Backslash '\'
+            console.log('I\'m a string');
+
+            let str = "Hello";
+            console.log(str[str.length-1]); //"o"
+            console.log("hello " + "imam"); //hell imam
+
+            let className = 'btn ';
+            className += 'btn_2 ';
+            className += 'btn_3';
+            console.log("className  "+className); //btn btn_2 btn_3
+
+            let status = false;
+            let str_1 = status.toString(); //flase
+            console.log(Boolean(str_1));  //true
+
+            //comparing string__:
+            //operators compare strings based on the numeric values of the charac
+            let result = 'a' < 'b'; 
+            console.log(result);  //true
+            let result_1 = 'a' < 'B';
+            console.log(result_1);  //false
+
+            console.log("_______object_________:");
+            // key:value
+            let emptyObj = {};//create object:
+            let PObj = {
+                fname : "masud",
+                lname : "hasan"
+                // 'Roll No' : "ap2009"
+            };
+            //objectName.propertyName
+            console.log(PObj.fname); // masud
+            // console.log(pObj.'Roll No') //error
+
+            // objectName['propertyName']
+            console.log(PObj['fname']); //masud
+            console.log(PObj['Roll No']) //ap2009
+
+            // in operator returns true if the propertyName exists in the objectName.
+            console.log('ssn' in PObj); //false
+            console.log(('lname' in PObj)); //true
+
+            //delete objectName.propertyName;
+            delete PObj.lname
+            console.log(PObj);
+
+            //add
+            PObj.roll = "ap2009";
+            //change
+            PObj.fname = "imam";
+
+            console.log(PObj);
+
+            let age = 25;
+            let newAge = age; //copy not change
+
+            newAge = newAge + 1;
+            console.log(age, newAge);
+
+            let person = {
+            name: 'John',
+            age: 25,
+            };
+
+            let member = person;//also copy 
+
+            member.age = 26; //change copy value
+
+            console.log(person);
+            console.log(member);
+
+            console.log('_______________Array________________:');
+
+            let arr = new Array();  //create array
+
+            let athletes = new Array(3); // creates an array with initial size 3
+            let scores = new Array(1, 2, 3); // create an array with three numbers 1,2 3
+            let signs = new Array('Red'); // creates an array with one element 'Red'
+            console.log(scores); //[1,2,3]
+
+            let Empty_array = [];
+
+            let arr_list = ['apple' , 'banana', 'mango'];
+
+            // methods
+            arr_list.pop() //remove the end of array = mango
+            arr_list.shift(); //remove the begining of array; = apple
+
+
+            arr_list.push('last_item'); //add end of array
+            arr_list.unshift('1st of array') //add begining of array
+            console.log(arr_list.indexOf('banana')); // check the item index number =1
+
+            console.log(arr_list);
+
+            // Array.isArray(variableName)  >> ata check krbe ata array kina jodi hoy true otherwise false
+             const arr_check = [1,2,3,4,4];
+             const person_1 = { name : 'imam', roll : 'ap2009'};
+            console.log(Array.isArray(arr_check)); //true
+            console.log(Array.isArray(person_1));//false
+            // also Same
+            console.log(arr_check instanceof Array); // true
+
+            console.log("_________other__________:");
+
+            console.log("10" == 10); // true
+            console.log("10" === 10); // false
+            
+            console.log(!undefined); // true
+            console.log(!null); // true
+            console.log(!20); //false
+            console.log(!0); //true
+            console.log(!NaN); //true
+            console.log(!{}); // false
+            console.log(!''); //true
+            console.log(!'OK'); //false
+            console.log(!false); //true
+            console.log(!true); //false
+
+            // The !! uses the logical NOT operator (!) twice to convert a value to its real boolean value.
+
+            let counter = 10;
+            console.log(!!counter); // true
+
+            let result_math = Math.pow(2,2);
+            console.log(result_math);//4
+            let result_3 = 2 ** 2;
+            console.log(result_3); // 4
+
+            result_4 = 2 ** 3;
+            console.log(result_4); // 8
+
+            let result_5 = 2n ** 3n;
+            console.log(result_5); // 8n
+
+            //operator next time i will see
+
+            console.log("___________condition________:");
+            // if (condition1) {
+            // // ...
+            // } else if (condition2) {
+            // // ...
+            // } else if (condition3) {
+            // //...
+            // } else {
+            // //...
+            // }
+
+            
+            // ternary operator
+
+                let age_1 = 18;
+                let message_1;
+
+                age >= 16 ? (message_1 = 'you can drive ') : (message_1 = 'No');
+                console.log(message_1); // you can drive
+
+                //otrher system
+
+                message_1 = age >= 16 ? 'you can drive ' : 'No';
+                console.log(message_1); //you can drive
+                
+                let authinticate = true ;
+                let nexturl = authinticate ? 'go next url' : 'No';
+                console.log(nexturl);//go next url
+
+                //multy conditin of ternary
+                // (?:)to make the code more concise.
+
+                let speed = 85;
+                let message_2 = speed >= 90 ? "too fast" : speed >= 80 ? " fast" :  "ok";
+                console.log(message_2); //fast
+
+                console.log('_______Spread Operator in Array_______:');
+
+                let colors = ['red' , ' black' , 'blue'];
+                let rgb = [...colors]//that means all colors of array
+                console.log(rgb); // ['red' , ' black' , 'blue']
+
+                let rgb_1 = [ 'apple', 'banana'];
+                let rgb_2 = ['mango' , 'fruit'];
+                let all = [...rgb_1 , ...rgb_2] //create in array
+                console.log("all colors  "+all);//['apple', 'banana','mango' , 'fruit']
+
+                console.log('________spread operator in object_________:');
+                let circle = {
+                    radious : 10
+                }
+                let colored_circle = {
+                    ...circle,
+                    color : 'black'
+                }
+                console.log(colored_circle); //{radious : 10 , color : black}
+                
+                //can join two Object
+
+                let circle_2 = {
+                    radious : 10
+                };
+                let style = {
+                    backgroundColor : 'red'
+                };
+                let circle_style = {
+                    ...circle_2,
+                    ...style
+                }
+                console.log(circle_style);//{radious : 10 , backgroundColor : 'red'}
+                
+                //Object.assign() assigns Next time see__?
+
+                // JavaScript Queue next time___?
+
+
+                console.log('___________loop______________:');
+
+                let j = 1;
+                for (; j < 10; j += 2) {
+                     console.log(j);
+                }
+
+                // for loop without the condition
+
+                for (let j = 1; ; j += 2) {
+                console.log(j);
+                if (j > 10) {
+                    break;
+                    // need to use a break statement to terminate the loop.
+                }
+                }
+                // without any expression
+                let x = 1;
+                for (;;) {
+                    if (j > 10) {
+                        break;
+                    }
+                    console.log(j);
+                    x += 2;
+                }
+                // without the loop body 
+                let sum = 0;
+                for (let i = 0; i <= 9; i++, sum += i);
+                console.log(sum);
+
+                console.log('________function_______________:');
+
+                function compare(a, b) {
+                if (a > b) {
+                    return -1;
+                } else if (a < b) {
+                    return 1;
+                }
+                return 0;
+                }
+                let fun_result = compare(0,0);
+                console.log("fun result "+fun_result);
+
+
+                // if the message is blank (or undefined), the say() function will show nothing.
+                function say(message) {
+                // show nothing if the message is empty
+                    if (! message ) {
+                        return;
+                    }
+                console.log("fun empty"+message);
+                }
+                say("");
+
+                // arguments object___________:
+                function add(){
+                    let sum = 0;
+                    for (let i =0; i < arguments.length; i++){
+                        sum += arguments[i];
+                    }
+                    return sum;
+                }
+                console.log(add(1, 2)); // 3
+                console.log(add(1, 2, 3, 4, 5)); // 15
+
+                // Function hoisting__________:
+                // you can use a function before declaring it
+
+                showMe();
+                function showMe(){
+                    console.log("an hosting an exaple");
+                }
+                
+                // Storing functions in variables next time?
+                // Passing a function to another function also next time?
+                
+                // compareBy() function returns a function that compares two objects by a property:
+                function compareBy(propertyName) {
+                return function (a, b) {
+                    let x = a[propertyName],
+                    y = b[propertyName];
+
+                    if (x > y) {
+                    return 1;
+                    } else if (x < y) {
+                    return -1;
+                    } else {
+                    return 0;
+                    }
+                };
+                }
+                let products = [
+                    {name: 'iPhone', price: 900},
+                    {name: 'Samsung Galaxy', price: 850},
+                    {name: 'Sony Xperia', price: 700}
+                ];
+                console.log('Products sorted by name:');
+                products.sort(compareBy('price'));
+                // products.sort(compareBy('name'));
+
+                console.table(products);
+
+                // anonymous functions as arguments__________:
+                setTimeout(function() {
+                    console.log('Execute later after 1 second')
+                }, 1000);//2000 milisecond means 2 second 
+
+                let show = () => console.log('Anonymous function');
+                
+                // Pass-by-value of primitives values______:
+                function square(x) {
+                    x = x * x;
+                    return x;//100 value
+                }
+
+                let y = 10;
+                let fun_result_x = square(y);//akhane y k copy kora hoise
+
+                console.log(fun_result_x); // 100 
+                console.log(y); // 10 -- no change
+
+                // Pass-by-value of reference values_____________:
+
+                let person_fun = {
+                name: 'John',
+                age: 25,
+                };
+                console.log(person_fun);
+                function increaseAge(obj) {
+                    obj.age += 1;
+                    //reference another object
+                    obj = {name : 'john', age : 22};
+                }
+
+                increaseAge(person_fun);
+
+                console.log(person_fun);      
+                
+                // recursive function____next time see?
+
+
+                function createDiv(height = '100px', width = '100px', border = 'solid 1px red') {
+                    let div = document.createElement('div');
+                    div.style.height = height;
+                    div.style.width = width;
+                    div.style.border = border;
+                    document.body.appendChild(div);
+                    console.log(div);
+                    return div;
+                    console.log("cannot showing"+div);
+                }
+                createDiv();
+
+                // Evaluating default parameters__________:
+
+                function put (toy, toyBox = []){
+                    toyBox.push(toy);
+                    return toyBox
+                }
+                console.log(put('toy car'));['toy car']
+
+                function date(d = today()) {
+                    console.log(d);
+                }
+                function today() {
+                    return (new Date()).toLocaleDateString("en-US");
+                }
+                date();
+                // Using other parameters in default values_______:
+
+                                function add(x = 1, y = x, z = x + y) {
+                    return x + y + z;
+                }
+
+                console.log(add()); // 4
+
+                // mothod javascript basic to advance+ er moddea
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>
