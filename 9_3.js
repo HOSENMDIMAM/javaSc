@@ -5,7 +5,7 @@ let myInput = document.getElementById("myInput");
 myInput.addEventListener("keyup", function (evt) {
 
     // console.log(evt.target.valu);
-    let text = evt.target.value;
+    let text = evt.target.value.toLowerCase;
     console.log(text);
     // リスト
     let li = document.querySelectorAll('li');
