@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html>
+// ボタンタグを取得
+let btn = document.getElementsByTagName("button")[0];
 
-<head>
-    <meta charset="utf-8">
-    <title>私のJavaScript</title>
-</head>
+// TODO クリックListenerを追加
 
-<body>
-    <!-- htmlページにjsコードの記入は禁止です -->
-    <input id="input" type="text" value="0" disabled/>
+let Nt = document.getElementById("input");
+// let i = 1;
+btn.addEventListener("click", function(){
+    let New_value = Nt.getAttribute("value");
+    New_value.number(New_value);
+     New_value +=1;
+    // Nt.setAttribute
+    // New_value.innerHTML;
 
-    <button value="+1">+1</button>
+    console.log(New_value);
 
-    <p>+1ボタンを押すと、入力欄+1.</p>
-
-    <script type="text/javascript" src="3_2.js"></script>
-</body>
-
-</html>
+});
