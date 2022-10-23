@@ -1,0 +1,50 @@
+{
+  "user": [
+    {
+      "name": "Iphone",
+      "description": "USA",
+      "Category": "Mobile",
+      "Supplier": "",
+      "price": "555555",
+      "picture": "@/assets/addImage.png",
+      "id": 5
+    },
+    {
+      "name": "proMac",
+      "description": "from californiya",
+      "Category": "NoteBook",
+      "Supplier": "Supplier",
+      "price": "150000",
+      "picture": "@/assets/addImage.png",
+      "id": 6
+    },
+    {
+      "name": "mango",
+      "description": "jjp",
+      "Category": "proMac",
+      "Supplier": "Supplier",
+      "price": "1500",
+      "picture": "@/assets/addImage.png",
+      "id": 7
+    },
+    {
+      "username": "user",
+      "password": "54321",
+      "id": 8
+    },
+    {
+      "name": "netbook",
+      "description": "made in calyforniya",
+      "Category": "Iphone",
+      "Supplier": "Supplier",
+      "price": "50000",
+      "picture": "@/assets/addImage.png",
+      "id": 9
+    },
+    {
+      "name": "",
+      "description": "",
+      "id": 10
+    }
+  ]
+}
